@@ -32,12 +32,21 @@ android {
     }
 }
 
-dependencies {
+// Create configuration for copyDependencies
+configurations {
+    create("copyDependencies")
+}
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+dependencies {
+    implementation(libs.lottie)
+    "copyDependencies"(libs.lottie)
+}
+
+// Copy dependencies for binding library
+project.afterEvaluate {
+    tasks.register<Copy>("copyDeps") {
+        from(configurations["copyDependencies"])
+        into("${layout.buildDirectory.get()}/outputs/deps")
+    }
+    tasks.named("preBuild") { finalizedBy("copyDeps") }
 }
