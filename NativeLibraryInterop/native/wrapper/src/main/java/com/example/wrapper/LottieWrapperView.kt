@@ -1,5 +1,6 @@
 package com.example.wrapper
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -19,5 +20,13 @@ class LottieWrapperView @JvmOverloads constructor(
 
     public fun setAnimation(rawRes: Int) {
         lottieView.setAnimation(rawRes)
+    }
+
+    public fun setLoop(enabled: Boolean) {
+        lottieView.repeatCount = if (enabled) ValueAnimator.INFINITE else 0
+    }
+
+    public fun playAnimation() {
+        lottieView.playAnimation()
     }
 }
