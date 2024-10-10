@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "native-library-wrapper"
 include(":app")
+include(":wrapper")
