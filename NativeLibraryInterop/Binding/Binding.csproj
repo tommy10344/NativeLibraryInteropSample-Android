@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- Reference to Android project -->
+  <ItemGroup>
+    <NLIGradleProjectReference Include="..\native">
+      <ModuleName>wrapper</ModuleName>
+      <!-- Metadata applicable to @(AndroidLibrary) will be used if set, otherwise the following defaults will be used:
+      <Bind>true</Bind>
+      <Pack>true</Pack>
+      -->
+    </NLIGradleProjectReference>
+  </ItemGroup>
+
+  <!-- Reference to NuGet for building bindings -->
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui.NativeLibraryInterop.BuildTasks" Version="0.0.1-pre1" PrivateAssets="all" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.20" />
+  </ItemGroup>
+</Project>
