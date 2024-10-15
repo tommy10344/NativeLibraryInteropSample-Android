@@ -11,6 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+      <AndroidLibrary Include="..\NativeLibraryInterop\native\wrapper\bin\Release\net8.0-android\outputs\deps\lottie-6.5.2.aar">
+          <Bind>false</Bind>
+          <Visible>false</Visible>
+      </AndroidLibrary>
+      <AndroidLibrary Include="..\NativeLibraryInterop\native\wrapper\bin\Release\net8.0-android\outputs\deps\okio-1.17.6.jar">
+          <Bind>false</Bind>
+          <Visible>false</Visible>
+      </AndroidLibrary>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NativeLibraryInterop\Binding\Binding.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.3" />
   </ItemGroup>
 </Project>
